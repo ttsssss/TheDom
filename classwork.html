@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>click buttn to create an IMG element</p>
+
+    <button onclick="myFun()">Click me</button>
+
+    <p>click button</p>
+
+    <div id="myDIV"></div>
+
+    <button onclick="myFun2()">Click me</button>
+
+    <ul id="myList">
+        <li>Watermelon</li>
+        <li>Horchata</li>
+    </ul>
+
+    <p>Add item to list!</p>
+
+    <button onclick="myFun3()">Try it</button>
+
+    <!-- running inline JS, frowned upon! -->
+    <script>
+        function myFun() {
+        let note= document.createElement("IMG");
+        note.setAttribute ("src", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQ5Tk4xXaFxzHLvHtmWCtmC-mejyZbF4Kvig&usqp=CAU")
+        note.setAttribute("height", "400");
+        document.body.appendChild(note);
+        }
+
+        function myFun2() {
+            let para= document.createElement("p")
+            let text= document.createTextNode("This text is gibberish");
+            para.appendChild(text);
+            document.getElementById("myDIV").appendChild(para);
+        }
+
+        function myFun3() {
+            let node= document.createElement("li");
+            let text1= document.createTextNode("Canteloupe");
+            node.appendChild(text1);
+            document.getElementById("myList").appendChild(node);
+        }
+
+        // form
+        
+    </script>
+    <form name="contactForm" onsubmit="return validateForm()" action="" method="get">
+     <h2>Application Form</h2>
+     <div class="row">
+        <label>What is your Full Name?</label>
+        <input type="text" name="name" required minlength="4" maxlength="50">
+        <div class="error" id="nameErr"></div>
+    </div>
+    <div class="row">
+        <input type="submit" value="Submit">
+        
+    </div>
+
+    <script>
+        function printErrror (elemID, hintMsg) {
+    document.getElementById (elemID).innerHTML=hintMsg
+}
+// Defining a function to validate form 
+function validateForm()
+    // Retrieving the values of form elements 
+ const name = document.contactForm.name.value;
+ for (let i=0; i <checkboxes.length; i++) {
+     if(checkboxes[i].checked) {
+     hobbies.push (checkboxes[i].value)
+ }
+}
+
+
+
+
+
+    
+    // Defining error variables with a  default value
+    var nameErrr= emailErr= moileErr= countryErr= genderErr=false;
+    //validate name
+if(name==" ") {
+    printError("nameErr", "Please Enter a Valid Name")
+} else {
+    var regex= /^[a-zA-Z\s]+$/;
+    if(regex.test(name) === false) {
+        printError("nameErr", "Please enter a valid name");
+    } else {
+        printError("nameErr", "")
+nameErr=false;
+    }
+}
+    </script>
+</body>
+</html>
